@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poiret One', cursive;
+    width:100%;
+    height:100vh;
+    background: url("/images/fcv_nofcv_back\ \(1\).jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    font-weight:900;
+}
+.tobacco{
+    width: 100%;
+    height:100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+.tobacco-container{
+    width:100%;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: space-around;
+
+}
+.img-fcv{
+    background-color: white;
+    width:100%;
+    -webkit-box-shadow: 1px 0px 3px 1px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 0px 3px 1px rgba(0,0,0,0.75);
+box-shadow: 1px 0px 3px 1px rgba(0,0,0,0.75);
+border-radius:5px;
+
+    
+}
+.img-nonfcv{
+    width:100%;
+    background-color: white;
+    -webkit-box-shadow: 1px 0px 3px 1px rgba(0,0,0,0.75);
+-moz-box-shadow: 1px 0px 3px 1px rgba(0,0,0,0.75);
+box-shadow: 1px 0px 3px 1px rgba(0,0,0,0.75);
+border-radius:5px;
+}
+#fcv:hover {
+    transform:scale(1.1);
+    transition: all ease 1s;
+}
+#nonfcv:hover
+{
+    transform:scale(1.1);
+    transition: all ease 1s;
+}
+.img-fcv{
+    overflow: hidden;
+}
+.img-nonfcv{
+    overflow: hidden;
+}
+#nonfcv{
+    width:100%;
+
+}
+#fcv{
+    width:100%;
+
+}
+.fcv-title{
+    width:100%;
+    text-align: center;
+    font-size: 30px;
+    font-family: sans-serif;
+    cursor: pointer;
+    -webkit-text-stroke-width: 2px ;
+    -webkit-text-fill-color: transparent;
+}
+.fcv-title a:hover{
+    -webkit-text-fill-color: black;
+}
+.fcv-title a{
+    text-decoration: none;
+    color:black;
+    font-weight: 900;
+}
+.crop-name {
+    font-family: sans-serif;
+    width:100%;
+    text-align: center;
+}
+@media(max-width:320px){
+  
+    .fcv-title{
+       
+        font-size: 10px;
+    -webkit-text-stroke-width: 1px ;
+       
+    }
+    .tobacco-container{
+        grid-template-columns:  40%;
+        gap:20px;
+    }
+}
+@media(max-width:375px) and (min-width:321px){
+   
+    .fcv-title{
+        font-size: 15px;
+        -webkit-text-stroke-width:1px ;
+    }
+    .tobacco-container{
+        grid-template-columns:40%;
+        gap:20px;
+    }
+}
+
+@media (max-width:425px) and (min-width:376px)  {
+    .tobacco-container{
+        grid-template-columns:  40%;
+        gap:20px;
+    
+    }
+    .fcv-title{
+       
+        font-size: 20px;
+    -webkit-text-stroke-width: 1px ;
+       
+    }
+}
+@media(max-width:768px) and (min-width:426px){
+ 
+    .fcv-title{
+        font-size: 25px;
+    -webkit-text-stroke-width: 2px ;
+       
+    }
+    .fcv-title{
+       
+        font-size: 25px;
+    -webkit-text-stroke-width: 2px ;
+       
+    }
+}
+@media (max-width:1024px) and (min-width:768px)  {
+    .tobacco-container{
+        grid-template-columns:  30% 30%;
+    
+    }
+    .fcv-title{
+       
+        font-size: 20px;
+    -webkit-text-stroke-width: 1px ;
+       
+    }
+}

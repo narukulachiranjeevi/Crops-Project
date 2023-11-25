@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/nonfcv.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://kit.fontawesome.com/74ec0e84e1.js" crossorigin="anonymous"></script>
+    <script src="/javascripts/aadhar.js"></script>
+    <script src="/javascripts/javascript.js"></script>
+</head>
+<body  ng-app="myapp" ng-controller="aadhar">
+    <button id="back1" onclick="tobaccofcv()"><i class="fas fa-solid fa-arrow-left"></i></button>
+    <h1 id="login-name">NON-FCV LOGINS</h1>
+    <section class="fcv-nonfcv-user-container">
+        <div class="fcv-nonfcv-unique_numbers">
+            <div class="comercial-grower">
+                <form action="" onsubmit="return false">
+                    <label for="">Enter Aadhar No:</label><br><br>
+                    <input type="number" placeholder="AADHAR NUMBER" id="num" ng-model=aadha.number>
+                    <button type="submit" ng-click="aadhar(aadha)"><i class="fas fa-solid fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+        <table border="">
+            <tr>
+            <td>Aadhar Number</td>
+            <td>Name</td>
+            <td>Area</td>
+            <td>Mobile</td>
+            </tr>
+            <tr ng-repeat="x in data">
+                <td>{{x.aadhar}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.area}}</td>
+                <td>{{x.mobile}}</td>
+                <td><form ng-submit="fun(yon)" onsubmit="return false">
+                <input type="radio" ng-model="yon" value="Yes">Yes
+                <input type="radio" ng-model="yon" value="No">No
+                <button type="submit" ng-click="myfun(data)">submit</button>
+            </form>
+                <td>
+            </tr>
+        </table>
+    </section>
+</body>
+</html>

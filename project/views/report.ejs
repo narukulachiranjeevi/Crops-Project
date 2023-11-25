@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="/javascripts/aadhar.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    
+    <title>Document</title>
+</head>
+<style>
+    body{
+        font-family: 'Poiret One', cursive;
+        font-weight:900;
+    }
+    p{
+        font-size: 25px;
+        color:black;
+        font-family: sans-serif;
+    }
+  
+    h2 {
+  position: relative;
+  color: #0087ca;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+h2:after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 1s ease-out;
+}
+
+h2:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.Total_sales{
+    margin-top: 2%;
+}
+th,tr,td
+    {
+    padding:3px;
+    box-shadow: 3px 1px 5px rgb(0, 0, 0,0.5);
+    }
+@media (max-width:320px)
+{
+        body{
+            font-size: 10px;
+        }
+      
+    h2{
+        font-size: 15px;
+    }
+    th,tr,td
+    {
+    padding:2px;
+    box-shadow: 3px 1px 5px rgb(0, 0, 0,0.5);
+    }
+    p{
+        font-size: 12px;
+    }
+}
+@media (max-width:375px) and (min-width:321px)
+{
+        body{
+            font-size: 10px;
+        }
+        th,tr,td
+    {
+    padding:3px;
+    box-shadow: 3px 1px 5px rgb(0, 0, 0,0.5);
+    }
+    h2{
+        font-size: 20px;
+    }
+    p{
+        font-size: 12px;
+    }
+    
+}
+@media (max-width:425px) and (min-width:376px)
+{
+        body{
+            font-size: 15px;
+        }
+        th,tr
+        {
+        padding:3px;
+
+         }
+    h2{
+        font-size: 20px;
+    }
+    p{
+        font-size: 14px;
+    }
+   
+}
+</style>
+<body ng-app="myapp" ng-controller="report">
+    <div class="sales">
+        <h2> Non-FCV  SALES </h2>
+      <p> Overall Sales History Upto Today</p>
+    </div>
+    <div class="Total_sales">
+        <table border="" ng-init="get()" style="text-align: center;">
+            <th>Date</th>
+            <th>AADHAR NO</th>
+            <th>Seed Name</th>
+            <th>Quantals</th>
+            <th>Cost</th>
+            <th>Amount</th>
+            <tr ng-repeat="x in report">
+                <td>{{x.date   | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                <td>{{x.aadhar}}</td>
+                <td>{{x.seedname}}</td>
+                <td>{{x.quantities}}</td>
+                <td>{{x.kgs}}</td>
+                <td>{{x.total}}</td>
+            </tr>
+            <tr>
+            <td colspan="4">total</td>
+            <td colspan="2">{{value}}</td>
+        </tr>
+        </table>
+    </div>
+</body>
+</html>

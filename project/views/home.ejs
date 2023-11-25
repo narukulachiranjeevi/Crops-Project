@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="stylesheets/ctri.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <section class="title-logos">
+           <div class="tl-img_sep"> 
+                    <div><img src="images/ctri_logo[854].png " id="logo-ctri" alt=""></div>
+
+                   <div class="company-name">
+                        <p id="line-1">E-Advisory Services on FCV Tobacco</p>
+                       <p id="line-2">ICAR - Central Tobacco Research Institute</p>
+                    <p id="line-3">Rajamahendravaram, Andhra Pradesh,INDIA-533101.</p> 
+            
+                    </div>
+
+                    <div><img src="images/icar_logo[853].png" id="logo-icar" alt=""></div>
+           </div>
+           <nav>
+               <div class="nav-links"> 
+                   <ul type="none">
+                <li>
+                <a href="index.html">Home</a> </li>
+                <li><a href="/login">Login</a></li>
+                <li id="report">
+                    <div class="dropdown">
+                        <button class="dropbtn">Report</button>
+                    <div class="dropdown-content">
+                        <div class="dropdown1">
+                            <button class="dropbtn1">FCV</button>
+                        <div class="dropdown-content1">
+                        <a href="/fcv_seed">Seed</a>
+                        <a href="/reportsdate">Date</a>
+                        </div>
+                        </div>
+                        <div class="dropdown1">
+                            <button class="dropbtn1">NON-FCV</button>
+                        <div class="dropdown-content1">
+                        <a href="/reportnfcv">Seed</a>
+                        <a href="/date">Date</a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </li>
+                <li><a href="" id="exit" onclick="exitfunction()">Exit</a></li>
+            </ul>
+        </div>
+              
+           </nav>
+           
+    </section>
+    <script>
+function exitfunction()
+{
+    this.close();
+
+}
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/FCV-users.css">
+    <script src="https://kit.fontawesome.com/74ec0e84e1.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="/javascripts/angular.js"></script>
+  <script src="/javascripts/javascript.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body ng-app="myapp" ng-controller="myctrl" ng-contorller="temp">
+    <button id="back" onclick="tobaccofcv()"><i class="fas fa-solid fa-arrow-left"></i></button>
+    <h1 id="login-name">FCV LOGINS</h1>
+    <br>
+    <div id="tacen-div">
+        <center>
+    <select name="tacen" id="tacen" ng-model="myDropDown" >
+        <option value=""  selected>Default</option>
+        <option value="tacen1" id="tacen1" >TGBR</option>
+        <option value="tacen2" id="tacen2">AADHAR</option>
+    </select>
+</center>
+</div>
+    <section class="fcv-nonfcv-user-container">
+        <div class="fcv-nonfcv-unique_numbers">
+            <div class="fcv-tgbr">
+          <form action="" onsubmit="return false"  ng-show="myDropDown=='tacen1'">
+                <label for="">Enter TBGR No:</label><br><br>
+                <input type="number" placeholder="TBGR NUMBER" name="name" id="num" ng-model="number.tbgrno">
+                <button type="submit" ng-click="send(number)"><i class="fas fa-solid fa-arrow-right"></i></button>
+            </form>
+            </div>
+            <div class="comercial-grower">
+                <form action="" onsubmit="return false"  ng-show="myDropDown=='tacen2'">
+                    <label for="">Enter Aadhar No:</label><br><br>
+                    <input type="number" placeholder="AADHAR NUMBER" id="num" ng-model="aaadhar.number">
+                    <button ng-click="senda(aaadhar)"><i class="fas fa-solid fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <table border="" style="margin-left: auto;margin-right: auto;"  ng-show="myDropDown=='tacen1'" >
+        <th>TBGR NO</th>
+        <th>Name of The of Grower</th>
+        <th>Father Name</th>
+        <th>Vilage Name</th>
+        <th>Surevey No</th>
+        <th>phone No</th>
+        <tr ng-repeat="x in data" ng-controller="temp">
+            <td>{{x.TBGRNO}}</td>
+            <td>{{x.NAMEOFTHEGROWER}}</td>
+            <td>{{x.FATHERNAME}}</td>
+            <td>{{x.VILLAGENAME}}</td>
+            <td>{{x.SURVEYNO}}</td>
+            <td>{{x.PHONENO}}</td>
+            <td>
+                <form ng-submit="fun(yon)" onsubmit="return false">
+                <input type="radio" ng-model="yon" value="Yes">Yes
+                <input type="radio" ng-model="yon" value="No">No
+                <button type="submit" ng-click="myfun(data)">submit</button>
+            </form>
+                <td>
+        </tr>
+    </table>
+
+    <table border="" style="margin-left: auto;margin-right: auto;" ng-show="myDropDown=='tacen2'">
+        <tr>
+        <td>Aadhar Number</td>
+        <td>Name</td>
+        <td>Area</td>
+        <td>Mobile</td>
+        </tr>
+        <tr ng-repeat="x in aadhar">
+            <td>{{x.aadhar}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.area}}</td>
+            <td>{{x.mobilenumber}}</td>
+            <td><form ng-submit="funn(yon)" onsubmit="return false">
+            <input type="radio" ng-model="yon" value="Yes">Yes
+            <input type="radio" ng-model="yon" value="No">No
+            <button type="submit" id="sub-fs" ng-click="myfun(data)">submit</button>
+        </form>
+            <td>
+        </tr>
+    </table>
+    <p>{{para}}</p>
+   
+    
+</body>
+</html>

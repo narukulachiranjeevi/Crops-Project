@@ -1,0 +1,114 @@
+var app = angular.module('myapp',[]);
+var data=[];
+var count=0;
+var sum=0;
+app.controller('aadhar',function($http,$scope){
+	$scope.aadhar=localStorage.getItem('aadhar');
+	$scope.aadhar = function(val) {
+		$scope.aadhar=5;
+		$http({
+			method:'post',
+			url:'/aadhar',
+			data:val
+		}).then(function(success){
+			$scope.data=success.data;
+			localStorage.setItem('aadhar',JSON.stringify(success.data));
+		},function(error){
+			console.log(error);
+		})
+	};
+	$scope.fun=function(val){
+		if(val=='Yes'){
+			$http({
+				url:'/searching',
+				method:'post',
+				data:localStorage.getItem('aadhar')
+			}).then(function(success){
+				localStorage.setItem('availb',JSON.stringify(success.data));
+				if(success.data.length!==0){
+					location.href="/historynf";
+				}
+				else{
+					location.href="/nfpurchase"
+				}
+			},function(error){
+				console.log(error);
+			})
+			//location.href='/nfpurchase';
+		}
+		else{
+			location.href='/nonfcv'
+		}
+	};
+});
+app.controller('purchase',function($http,$scope){
+	$scope.count=0;
+	$scope.aadhar=JSON.parse(localStorage.getItem('aadhar'))[0].aadhar;
+	$scope.send=function(val){
+		val.total=val.qun*val.kgs;
+		val.aadhar=$scope.aadhar;
+		$scope.count++;
+		val.count=$scope.count;
+		val.date=new Date().toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
+		$http({
+			method:'post',
+			url:'/npurchase',
+			data:val
+		}).then(function(data){
+			console.log(data);
+		},function(error){
+			console.log(error);
+		})
+	}
+	$scope.save=function(val) {
+		val.count=$scope.count;
+		$http({
+			method:'post',
+			data:val,
+			url:'/savenf'
+		}).then(function(success){
+			console.log('success');
+		},function(error){
+			console.log(error);
+		})
+		location.href="/nonfcv"
+	}
+});
+app.controller('report',function($scope,$http){
+	$scope.get=function(){
+		$http({
+			method:'get',
+			url:'/getnf'
+		}).then(function(success){
+			$scope.report=success.data;
+			console.log(success.data);
+			sum=0;
+			angular.forEach(success.data,function(val2,key){
+				sum=sum+val2.total;
+			});
+			$scope.value=sum;
+		},function(error){
+			console.log(error);
+		})
+	}
+	$scope.daa=function(val){
+		val.end.setDate(val.end.getDate()+1)
+		$http({
+			method:'post',
+			url:'/postnf',
+			data:val
+		}).then(function(success){
+			$scope.dataa=success.data;
+			sum=0;
+			angular.forEach(success.data,function(val2,key){
+				sum=sum+val2.total;
+			});
+			$scope.value=sum;
+		},function(error){
+			console.log(error);
+		})
+	}
+});
+app.controller('reports',function($scope,$http){
+	$scope.availb=JSON.parse(localStorage.getItem('availb'));
+});

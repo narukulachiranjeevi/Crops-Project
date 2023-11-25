@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="/javascripts/aadhar.js"></script>
+  <script src="/javascripts/javascript.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+  
+    <title>Document</title>
+</head>
+<style>
+    body{
+        font-family: 'Poiret One', cursive;
+        font-weight:900;
+    }
+    #non-fcv_sales_heading{
+        width:100%;
+        display: grid;
+        justify-content: center;
+        position: relative;
+  color: #0087ca;
+    font-size: 30px;
+    font-weight: 550;
+    
+    }
+    #non-fcv-procedure{
+        font-size: 20px;
+    }
+    .non-fcv-dates{
+        width:100%;
+     
+    }
+    #showbtn{
+        border:1px solid black;
+        padding:3px 10px 3px 10px;
+        box-shadow: 3px 3px 5px rgb(0, 0, 0,0.9);
+        border-radius: 2px;
+    }
+    #showbtn:hover{
+        border:1px solid black;
+        padding:3px 10px 3px 10px;
+        color:white;
+        background-color:black;
+        border-radius: 2px;
+    }
+    @media (max-width:320px)
+    {
+        #non-fcv-procedure{
+        font-size: 13px;
+    }
+    body{
+        font-size: 13px;
+    }
+    table{
+        font-size: 13px;
+    }
+    }
+    @media (max-width:375px) and (min-width:321px)
+    {
+        #non-fcv-procedure{
+        font-size: 13px;
+    }
+    body{
+        font-size: 13px;
+    }
+    table{
+        font-size: 13px;
+    }
+    }
+    @media (max-width:425px) and (min-width:376px)
+    {
+        #non-fcv-procedure{
+        font-size: 15px;
+    }
+    body{
+        font-size: 15px;
+    }
+    table{
+        font-size: 15px;
+    }
+    }
+    
+</style>
+<body ng-app="myapp" ng-controller="report">
+    <div class="non-fcv-period">
+        <div class="heading">
+            <p id="non-fcv_sales_heading">NON-FCV DETAILS </p>
+            <p id="non-fcv-procedure">Select <b>FROM Date</b> and <b>TO Date</b> to see the particular period of sales</p>
+        </div>
+        
+        <div class="non-fcv-dates">
+            <form>
+                <center>
+                    <label for="">From</label> <input type="date" ng-model="data.start">
+                    <label for="">to</label> <input type="date" ng-model="data.end">
+                    <br><br>
+                    <button type="submit" id="but" ng-click="daa(data)" onclick="disable()">Show</button>
+                     </center>
+            </form>
+        </div>
+    </div>
+    <table border="" style="margin-top: 20px;margin-left: auto;margin-right: auto; text-align: center;">
+        <th>Date</th>
+        <th>AAdhar Number</th>
+        <th>Seed Name</th>
+        <th>Quantities(NO of Kgs)</th>
+        <th>Cost(Kg)</th>
+        <th>Total<th>
+            <tbody>
+        <tr ng-repeat="x in dataa">
+            <td>{{x.date | date:'dd-MM-yyyy HH:mm:ss '}}</td>
+            <td>{{x.aadhar}}</td>
+            <td>{{x.seedname}}</td>
+            <td>{{x.quantities}}</td>
+            <td>{{x.kgs}}</td>
+            <td>{{x.total}}</td>
+        </tr>
+        <tr>
+            <td colspan="4">total</td>
+            <td colspan="2">{{value}}</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

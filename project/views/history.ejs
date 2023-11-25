@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="/javascripts/angular.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<style>
+    *{
+        box-sizing: border-box;
+      
+    }
+    body
+    {font-family: 'Poiret One', cursive;
+        background-color: rgb(253, 254, 255);
+        
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button 
+    {
+    -webkit-appearance: none;
+    margin: 0;
+
+    }
+   
+    th,tr,td
+    {
+    padding:10px;
+    box-shadow: 3px 1px 5px rgb(0, 0, 0,0.9);
+    }
+    #Nextbtn{
+        border:1px solid black;
+        padding:3px 10px 3px 10px;
+        box-shadow: 3px 3px 5px rgb(0, 0, 0,0.9);
+
+    }
+    #Nextbtn:hover{
+        border:1px solid black;
+        padding:3px 10px 3px 10px;
+        color:white;
+        background-color:black;
+        border-radius: 2px;
+    }
+    mark{
+        color:white;
+        padding:0px 10px 0px 10px;
+    }
+    mark:hover{
+        color:red;
+        padding:0px 10px 0px 10px;
+    }
+@media (max-width:320px)
+{
+        body{
+            font-size: 10px;
+        }
+      
+    h2{
+        font-size: 10px;
+    }
+    mark{
+        padding:0px 0px 0px 0px;
+    }
+    mark:hover{
+        padding:0px 0px 0px 0px;
+    }
+    th,tr,td
+    {
+    padding:2px;
+    box-shadow: 3px 1px 5px rgb(0, 0, 0,0.5);
+    }
+}
+@media (max-width:375px) and (min-width:321px)
+{
+        body{
+            font-size: 10px;
+        }
+        th,tr,td
+    {
+    padding:3px;
+    box-shadow: 3px 1px 5px rgb(0, 0, 0,0.5);
+    }
+    h2{
+        font-size: 12px;
+    }
+    mark{
+        padding:0px 0px 0px 0px;
+    }
+    mark:hover{
+        padding:0px 0px 0px 0px;
+    }
+}
+@media (max-width:425px) and (min-width:376px)
+{
+        body{
+            font-size: 15px;
+        }
+        th,tr
+        {
+        padding:3px;
+
+         }
+    h2{
+        font-size: 14px;
+    }
+    mark{
+        padding:0px 0px 0px 0px;
+    }
+    mark:hover{
+        padding:0px 0px 0px 0px;
+    }
+}
+</style>
+<body ng-app="myapp" ng-controller="report">
+    <div class="past_purchase">
+        <h2>These are the  <mark>PURCHASE HISTORY</mark> of the above  <mark>TGBR NO</mark></h2>
+        <table border="" >
+            <th>Date</th>
+            <th>TBGR NO</th>
+            <th>Seed Name</th>
+            <th>Quantals</th>
+            <th>Cost</th>
+            <th>Amount</th>
+        <tbody ng-repeat="x in avail">
+            <td>{{x.date | date:'yyyy-MM-dd'}}</td>
+            <td>{{x.tbgrno}}</td>
+            <td>{{x.seedname}}</td>
+            <td>{{x.quantities}}</td>
+            <td>{{x.cost}}</td>
+            <td>{{x.total}}</td>
+        </tbody>
+        </table>
+        <br>
+        <br>
+        <form action="/purchase" >
+            <button id="Nextbtn">Next</button>
+        </form>
+    </div>
+
+</body>
+</html>
